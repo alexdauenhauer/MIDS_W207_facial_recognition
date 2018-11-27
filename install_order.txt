@@ -1,0 +1,6 @@
+pip install pandas
+pip install six numpy scipy Pillow matplotlib scikit-image opencv-python imageio Shapely
+pip install --upgrade tensorflow
+pip install keras
+pip install ipykernel
+python -m ipykernel install --user --name py3virtualenv
