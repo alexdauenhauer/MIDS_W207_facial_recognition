@@ -3,4 +3,5 @@ pip install six numpy scipy Pillow matplotlib scikit-image opencv-python imageio
 pip install --upgrade tensorflow
 pip install keras
 pip install ipykernel
+pip install pydot
 python -m ipykernel install --user --name py3virtualenv
