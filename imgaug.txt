@@ -1,0 +1,64 @@
+seq = iaa.Sequential([
+    iaa.Crop(px=(0, 16)), # crop images from each side by 0 to 16px (randomly chosen)
+    #iaa.Fliplr(1), # horizontally flip 50% of the images
+    #iaa.GaussianBlur(sigma=(0, 3.0)) # blur images with a sigma of 0 to 3.0
+])
+
+seq_det = seq.to_deterministic()
+
+test_pic = train_data[0].astype('uint8')
+test_pic = train_data[0].reshape(96,96)
+
+plt.figure()
+
+for c in range(0, train_labels.shape[1], 2):
+    x = train_labels[0][c]* 48 + 48
+    y = train_labels[0][c+1]* 48 + 48
+        
+    plt.scatter(x,y,cmap='pastel1')
+    
+    #break
+        
+        
+plt.imshow(test_pic, cmap='gray')
+
+####################### New picture 
+
+test_pic = np.expand_dims(test_pic, axis=0)
+images_aug = np.squeeze(seq_det.augment_images(test_pic))
+
+plt.figure()
+plt.imshow(images_aug, cmap='gray')
+        
+keypoints_on_images = []
+keypoints = []
+
+for c in range(0, train_labels.shape[1], 2):
+    x = train_labels[0][c]* 48 + 48
+    y = train_labels[0][c+1]* 48 + 48
+    
+    keypoints.append(ia.Keypoint(x=x, y=y))
+    
+keypoints_on_images.append(ia.KeypointsOnImage(keypoints, shape=(96,96)))
+keypoints_aug = seq_det.augment_keypoints(keypoints_on_images)
+
+
+#for point in keypoints:
+    #print(point)
+    
+for keypoints_after in keypoints_aug:
+    for i, keypoint in enumerate(keypoints_after.keypoints):
+        print (keypoint, keypoints[i])
+        plt.scatter(keypoint.x,keypoint.y,cmap='pastel1')
+        
+        #break
+
+
+"""for keypoints_after in keypoints_aug:
+    for i, keypoint in enumerate(keypoints_after.keypoints):
+        x_new, y_new, x_old, y_old = keypoint.x, keypoint.y, keypoints.keypoints[i].x, keypoints.keypoints[i].y
+        
+        print (x_new, y_new, x_old, y_old)
+        
+     plt.scatter(x_new,y_new,c='r')"""
+        
