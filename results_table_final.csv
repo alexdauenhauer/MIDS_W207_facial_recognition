@@ -1,4 +1,4 @@
 index,Training Average,LinearRegression_complete,DecisionTree_complete,RandomForest_complete,NearestNeighbors_complete,LinearRegression_complete_aug,DecisionTree_complete_aug,RandomForest_complete_aug,NearestNeighbors_complete_aug,CNN model0a,CNN model0b,CNN model1,CNN model2,CNN model3,CNN model4
-Train Loss,,0.0,0.0,1.2,1.96,0.0,0.0,1.52,2.62,0.46,3.3,0.57,2.77,2.59,4.31
-Validation Loss,,2.56,3.39,2.47,2.36,227.09,3.6,2.59,2.43,1.41,2.57,1.69,2.6,2.5,4.11
-Kaggle Score,4.46,4.08,4.74,3.91,3.96,46.32,4.96,4.11,4.07,3.08,3.89,2.32,3.15,3.01,4.47
+Train Loss,,0,0,1.2,1.96,0,0,1.52,2.62,0.46,3.3,0.57,2.77,2.59,3.04
+Validation Loss,,2.56,3.39,2.47,2.36,227.09,3.6,2.59,2.43,1.41,2.57,1.69,2.6,2.5,2.63
+Kaggle Score,4.46,4.08,4.74,3.91,3.96,46.32,4.96,4.11,4.07,3.08,3.89,2.32,3.15,3.01,
